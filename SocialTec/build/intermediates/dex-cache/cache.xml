@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="778cf3e73b6191752ebdc01f5b15ae8f90b3e31d">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6da688d587184afc5c0f4d03c8ca867ae62355f1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.2.1_321690c7341d1e02660182d84e27ad0e8dddf982\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_3992f311a45c1930f6602cd6ed5f2e84ffe6ca2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_c369efb8e30caf779eb600c9470927cbf9a14390\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_73173bc1d4176214ccd20268af036a4f13cb0a57\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_c0a120b3f74c19816efc75113e542fce1b5b93d2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_eb9be8e850d969d23bfb0d77780927ba1bc0580c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Edgar\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_e3a2f667e8d0bfa8eb29ca046ed5acf78e62d55d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_37b5e00c359706e21cc2fe2e455167b523956396\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="8d6d51f1196880bb86818dfd74de1c7a1be0b926">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_0ad8dcad221a7144e63e61ef455d6880bea13ea9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_36f4e0a4cf3b2152faa0b4b0f03aad47d29273bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Edgar\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.6.1\86b122e640af09b0723e1fa44083c354ba6d9089\glide-3.6.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.6.1_1a542ebefabd8287ced72f4a025b4767e0d48df8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_1885d5a5e01f31529fe541a3eb532352d70e185b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_30b8763d3565f0760ce315347a1cae8be66232fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_1163c8fc17fef01af34e6c43a547b96de8686d17\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_e055036a1e8d873959b26b48545bd4c1cc703a63\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_5ab28cd85f6a80d751a746eb5f825e42a2ef84f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_5c554948d8e03c6770f44b8390e2b38b1bcf56e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.hdodenhof-circleimageview-1.3.0_520fef8ed2924524d327befaa0a6c3400ca22247\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_1a386a61eed87a7c264911c01b373863ff9f9c50\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_2d91ea0f38afe17bc2d662c34f123804fcb3a4fa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android\SocialTec\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\android\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_b74e1a65b4ae29462371758662f0ae0bf6c7e38a\classes.dex" />
+    </item>
+
+</items>

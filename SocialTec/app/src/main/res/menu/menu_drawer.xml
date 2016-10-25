@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:checked="true"
+            android:icon="@drawable/ic_home"
+            android:title="@string/inicio_item" />
+
+        <item
+            android:id="@+id/nav_grupos"
+            android:icon="@drawable/ic_grupos"
+            android:title="@string/grupos_item" />
+
+
+        <item
+            android:id="@+id/nav_mensajes"
+            android:icon="@drawable/ic_mensajes"
+            android:title="@string/mensajes_item" />
+
+
+        <!-- Sección de configuración -->
+        <item
+            android:id="@+id/configuration_section"
+            android:title="@string/configuracion_item">
+            <menu>
+                <item
+                    android:id="@+id/nav_ajustes"
+                    android:icon="@drawable/ic_ajustes"
+                    android:title="@string/ajustes_item" />
+                <item
+                    android:id="@+id/nav_cerrar_sesion"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/cerrar_sesion_item" />
+            </menu>
+        </item>
+    </group>
+
+</menu>

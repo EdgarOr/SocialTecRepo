@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+        <TextView
+            android:id="@+id/registro"
+            android:text="Registrate con tu información institucional"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:id="@+id/numControl_txt_view"
+            android:text="Núm. Control:"
+            android:textSize="20sp"
+            android:layout_below="@id/registro"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:hint="E00000000"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/numcontrol_edit"
+            android:layout_alignBaseline="@+id/numControl_txt_view"
+            android:layout_toEndOf="@+id/numControl_txt_view"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/nickname_txt_view"
+            android:text="Nickname:"
+            android:textSize="20sp"
+            android:layout_below="@id/numControl_txt_view"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:hint="juanito123"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/nickname_edit"
+            android:layout_alignBaseline="@+id/nickname_txt_view"
+            android:layout_toEndOf="@+id/numControl_txt_view"
+            android:layout_marginStart="10dp"/>
+
+
+        <TextView
+
+            android:id="@+id/nombre_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre(s):"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@id/nickname_txt_view"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:inputType="text"
+            android:hint="Juan Luis"
+            android:ems="10"
+            android:id="@+id/nombres_edit"
+            android:layout_alignBaseline="@id/nombre_txt_view"
+            android:layout_toEndOf="@+id/numControl_txt_view" />
+
+        <TextView
+
+            android:id="@+id/apellidos_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apellido(s):"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@id/nombre_txt_view"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:inputType="text"
+            android:hint="Pérez Hernández"
+            android:ems="10"
+            android:id="@+id/apellidos_edit"
+            android:layout_alignBaseline="@+id/apellidos_txt_view"
+            android:layout_toEndOf="@+id/numControl_txt_view" />
+
+        <TextView
+            android:id="@+id/semestre_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semestre:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@id/apellidos_txt_view"
+            android:layout_marginBottom="20dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/semestre_spinner"
+            android:layout_below="@+id/apellidos_txt_view"
+            android:layout_alignStart="@+id/apellidos_edit" />
+
+        <TextView
+            android:id="@+id/carrera_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carrera:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@id/semestre_txt_view"
+            android:layout_marginBottom="20dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carrera_spinner"
+            android:layout_below="@+id/semestre_txt_view"
+            android:layout_alignStart="@+id/apellidos_edit" />
+
+        <TextView
+
+            android:id="@+id/contrasena_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@id/carrera_txt_view"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:inputType="text"
+            android:hint="*******"
+            android:paddingStart="10dp"
+            android:ems="10"
+            android:id="@+id/contrasena_edit"
+            android:layout_alignBaseline="@+id/contrasena_txt_view"
+            android:layout_toEndOf="@+id/contrasena_txt_view" />
+
+        <TextView
+
+            android:id="@+id/repetir_contrasena_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repetir contraseña:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@id/contrasena_txt_view"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:inputType="text"
+            android:hint="*******"
+            android:paddingStart="10dp"
+            android:ems="10"
+            android:id="@+id/repetir_contrasena_edit"
+            android:layout_alignBaseline="@+id/repetir_contrasena_txt_view"
+            android:layout_toEndOf="@+id/repetir_contrasena_txt_view" />
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/repetir_contrasena_txt_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+            <Button
+                android:id="@+id/botonRegistrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registrar"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary"
+                android:layout_marginEnd="27dp" />
+
+            <Button
+                android:id="@+id/botonCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary"
+                />
+
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

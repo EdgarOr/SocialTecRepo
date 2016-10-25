@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SocialTec</string>
+
+    <string name="inicio_item">Inicio</string>
+    <string name="grupos_item">Grupos</string>
+    <string name="ajustes_item">Ajustes</string>
+    <string name="configuracion_item">Configuración</string>
+    <string name="mensajes_item">Mensajes</string>
+    <string name="cerrar_sesion_item">Cerrar Sesión</string>
+
+    <string name="user">Username:</string>
+    <string name="pass">Password:</string>
+    <string name="botonLogin">Login</string>
+    <string name="botonRegistro">Registrar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

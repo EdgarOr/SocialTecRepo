@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
-import moviles.com.socialtec.ActivityRegistro;
 import moviles.com.socialtec.R;
+import moviles.com.socialtec.controlador.ParseServerHelper;
 
 /**
  * Created by Edgar on 10/10/2016.
@@ -17,11 +18,19 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
     private Button botonLogin;
     private Button botonRegister;
+    private ParseServerHelper helper;
+    private EditText username;
+    private EditText password;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        helper = new ParseServerHelper(this);
+        helper.inicializarParse();
+
+        username = (EditText) findViewById(R.id.et_user);
+        password= (EditText) findViewById(R.id.et_pass);
 
         botonLogin = (Button) findViewById(R.id.botonLogin);
         botonRegister = (Button) findViewById(R.id.botonRegistrar);
@@ -41,9 +50,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
                 startActivity(i);
                 break;
             case R.id.botonLogin:
-                i= new Intent(this, MainActivity.class);
-                finish();
-                startActivity(i);
+                helper.loginUsuario(username.getText().toString(), password.getText().toString());
                 break;
 
         }

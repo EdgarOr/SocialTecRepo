@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/app_bar"
+        android:background="#ecf0f1"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -21,14 +22,177 @@
             android:orientation="vertical"
             android:paddingTop="24dp">
 
-            <!-- Card Perfil -->
+            <!-- Card NumControl -->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/card_margin">
 
                 <LinearLayout
+                    style="@style/CardView"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <!--Etiqueta Perfil -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Núm. Control"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
+                    <EditText
+                        android:id="@+id/numcontrol_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="E12020823"
+                        android:inputType="text"
+                        android:textSize="@dimen/texto_size"
+                        android:enabled="false"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <!-- Card NumControl -->
+
+            <!-- Card Nombre y Apellido -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:layout_marginLeft="@dimen/card_margin"
+                android:layout_marginRight="@dimen/card_margin">
+
+                <LinearLayout
+                    style="@style/CardView"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre(s):"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <EditText
+                            android:id="@+id/nombres_edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="Edgar"
+                            android:inputType="text"
+                            android:textSize="@dimen/texto_size"
+                            android:enabled="false"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Apellido(s):"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <EditText
+                            android:id="@+id/apellidos_edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="Ordoñez Ruiz"
+                            android:inputType="text"
+                            android:textSize="@dimen/texto_size"
+                            android:enabled="false"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <!-- Card Nombre y Apellido -->
+
+            <!-- Card Semestre y Carrera-->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:layout_marginLeft="@dimen/card_margin"
+                android:layout_marginRight="@dimen/card_margin">
+
+                <LinearLayout
+                    style="@style/CardView"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Semestre:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        <!-- Texto de ejemplo -->
+                        <Spinner
+                            android:id="@+id/semestre_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/texto_size"
+                            android:enabled="false"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Carrera:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        <!-- Texto de ejemplo -->
+                        <Spinner
+                            android:id="@+id/carrera_spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/texto_size"
+                            android:enabled="false"/>
+
+
+                    </LinearLayout>
+                    <!-- Etiqueta Amigos -->
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- Card NumControl -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin">
+
+                <LinearLayout
                     style="@style/CardView"
                     android:layout_width="match_parent"
                     android:orientation="vertical"
@@ -37,19 +201,22 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Perfil"
+                        android:text="Correo electronico: "
                         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
                     <!--Texto de ejemplo-->
-                    <TextView
+                    <EditText
+                        android:id="@+id/correo_edit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem" />
-
+                        android:ems="10"
+                        android:hint="example@mail.com"
+                        android:inputType="text"
+                        android:textSize="@dimen/texto_size"
+                        android:enabled="false"/>
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
-            <!-- Card Amigos -->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,52 +226,60 @@
 
                 <LinearLayout
                     style="@style/CardView"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
 
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contraseña actual:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        <!-- Texto de ejemplo -->
+                        <EditText
+                            android:id="@+id/pw_actual_edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="******"
+                            android:inputType="textPassword"
+                            android:textSize="@dimen/texto_size"
+                            android:enabled="false"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nueva contraseña:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        <!-- Texto de ejemplo -->
+                        <EditText
+                            android:id="@+id/pw_new_edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="******"
+                            android:inputType="textPassword"
+                            android:textSize="@dimen/texto_size"
+                            android:enabled="false"/>
+
+
+                    </LinearLayout>
                     <!-- Etiqueta Amigos -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Amigos(450)"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-                    <!-- Texto de ejemplo -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lorem ipsum" />
 
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <!-- Card Intereses -->
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/card_margin"
-                android:layout_marginLeft="@dimen/card_margin"
-                android:layout_marginRight="@dimen/card_margin">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    style="@style/CardView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <!-- Etiqueta Intereses -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Intereses"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
-                    <!-- Texto de ejemplo -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lorem" />
 
                 </LinearLayout>
 
@@ -134,6 +309,17 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <!-- Imagen del detalle -->
+
+            <!-- Toolbar -->
+            <android.support.v7.widget.Toolbar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
             <ImageView
                 android:id="@+id/image_paralax"
                 android:layout_width="match_parent"
@@ -141,15 +327,6 @@
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax" />
-
-            <!-- Toolbar -->
-            <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
         </android.support.design.widget.CollapsingToolbarLayout>
 
 

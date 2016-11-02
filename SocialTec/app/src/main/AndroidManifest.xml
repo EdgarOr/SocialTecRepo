@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="moviles.com.socialtec">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +32,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".vista.MainActivity" />
         </activity>
-        <activity android:name=".ActivityRegistro" android:parentActivityName=".vista.ActivityLogin">
+        <activity
+            android:name=".vista.ActivityRegistro"
+            android:parentActivityName=".vista.ActivityLogin">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".vista.ActivityLogin" />

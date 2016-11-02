@@ -1,5 +1,6 @@
 package moviles.com.socialtec.vista;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -10,10 +11,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.ParseUser;
 
 import moviles.com.socialtec.R;
+import moviles.com.socialtec.controlador.ParseServerHelper;
 import moviles.com.socialtec.vista.FragmentoInicio;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
         agregarToolbar();
 
+
+
+
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
@@ -35,6 +46,24 @@ public class MainActivity extends AppCompatActivity {
             // Seleccionar item por defecto
             seleccionarItem(navigationView.getMenu().getItem(0));
         }
+
+        final Context context = this.getApplicationContext();
+        final TextView username = (TextView) navigationView.getHeaderView(0).findViewById(R.id.username);
+        final TextView nickname= (TextView) navigationView.getHeaderView(0).findViewById(R.id.nickname);
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ParseUser user = ParseServerHelper.getCurrentUser();
+                if (user != null){
+                    username.setText(user.get("nombre").toString() + " " + user.get("apellidos").toString());
+                    nickname.setText(user.getUsername());
+                } else {
+                    Toast.makeText(context, "ERROR CURRENT USER", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).start();
     }
 
     private void agregarToolbar() {

@@ -72,14 +72,14 @@
 
         <TextView
 
-            android:id="@+id/nombre_txt_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre(s):"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:layout_below="@id/nickname_txt_view"
-            android:layout_marginBottom="20dp" />
+        android:id="@+id/nombre_txt_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre(s):"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:layout_below="@id/nickname_txt_view"
+        android:layout_marginBottom="20dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -91,6 +91,8 @@
             android:id="@+id/nombres_edit"
             android:layout_alignBaseline="@id/nombre_txt_view"
             android:layout_toEndOf="@+id/numControl_txt_view" />
+
+
 
         <TextView
 
@@ -150,10 +152,10 @@
 
         <TextView
 
-            android:id="@+id/contrasena_txt_view"
+            android:id="@+id/correo_txt_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contraseña:"
+            android:text="Correo:"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:layout_below="@id/carrera_txt_view"
@@ -163,7 +165,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
+            android:hint="examples@mail.com"
+            android:ems="10"
+            android:id="@+id/correo_edit"
+            android:layout_alignBaseline="@id/correo_txt_view"
+            android:layout_toEndOf="@+id/numControl_txt_view" />
+
+        <TextView
+
+            android:id="@+id/contrasena_txt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@id/correo_txt_view"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:inputType="textPassword"
             android:hint="*******"
             android:paddingStart="10dp"
             android:ems="10"
@@ -186,7 +210,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:hint="*******"
             android:paddingStart="10dp"
             android:ems="10"

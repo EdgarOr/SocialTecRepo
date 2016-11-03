@@ -3,18 +3,25 @@ package moviles.com.socialtec.vista;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
 import moviles.com.socialtec.R;
 import moviles.com.socialtec.controlador.AdaptadorInicio;
+import moviles.com.socialtec.controlador.ParseServerHelper;
 import moviles.com.socialtec.controlador.RecyclerItemClickListener;
 import moviles.com.socialtec.modelo.Comentario;
 import moviles.com.socialtec.modelo.Publicacion;
@@ -43,6 +50,20 @@ public class FragmentoInicio extends Fragment {
         manager = new LinearLayoutManager(getActivity());
         recycler.setLayoutManager(manager);
 
+        ParseUser user = ParseServerHelper.getCurrentUser();
+        if (user!= null) {
+            ((TextView)v.findViewById(R.id.nickname_txt_view)).setText(user.getUsername());
+        }
+
+        LinearLayout linear = (LinearLayout) v.findViewById(R.id.linear_publicacion);
+        linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), PublicacionActivity.class);
+                startActivity(i);
+            }
+        });
+
         adaptador = new AdaptadorInicio();
         recycler.setAdapter(adaptador);
         recycler.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recycler, new RecyclerItemClickListener.OnItemClickListener() {
@@ -51,26 +72,15 @@ public class FragmentoInicio extends Fragment {
 
             @Override
             public void onItemLongClick(View view, int position) {
-                //String nickname = Publicacion.PUBLICACIONES.get(position).getUsuario().getNickname();
-                //Toast.makeText(view.getContext(), "Comentar " + nickname, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(view.getContext(), CommentActivity.class);
-                //TODO: hacer cambios sobre este asunto de los intends
-                /*ArrayList<Comentario> comentarios = new ArrayList<>();
-                for (Comentario comentario: Comentario.COMENTARIOS) {
-                    if (comentario.getPublicacion() == Publicacion.PUBLICACIONES.get(position)) {
-                        comentarios.add(comentario);
-                    }
-                }*/
-
-                //intent.putExtra("nickname", nickname);
-                //intent.putExtra("nickname", nickname);
                 startActivity(intent);
-
 
             }
         }));
 
-            return v;
+
+
+        return v;
     }
 
 }

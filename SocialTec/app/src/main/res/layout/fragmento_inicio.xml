@@ -1,7 +1,68 @@
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_inicio"
-    android:layout_height="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
-    android:scrollbars="vertical"
-    android:background="#dee4ee"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#ecf0f1"   >
+
+    <LinearLayout
+        android:id="@+id/linear_publicacion"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/image_usuario"
+                android:src="@drawable/perfil1"
+                android:layout_width="@dimen/perfil_image_publicacion"
+                android:layout_height="@dimen/perfil_image_publicacion" />
+            <TextView
+                android:id="@+id/nickname_txt_view"
+                android:text="nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/publicacion_txt_view"
+            android:text="Escribe algo..."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#95a5a6" />
+
+
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="100dp"
+        android:id="@+id/recycler_inicio"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:background="#dee4ee" />
+
+
+
+
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

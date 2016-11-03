@@ -223,7 +223,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="a3c7c57e55581e3122f531a37bf55f17e0fdba43">
+        sha1="a840e323e31315bfefdb259c6fe76f5d1f22d9db">
         <dex dex="C:\android\SocialTecRepo\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_51a1bcc128b6cb859e476a7609170d9a90343d47\classes.dex" />
     </item>
 

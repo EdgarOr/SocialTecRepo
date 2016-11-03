@@ -12,8 +12,13 @@ import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 import moviles.com.socialtec.vista.MainActivity;
 
@@ -126,6 +131,42 @@ public class ParseServerHelper {
         ok.show();
     }
 
+    public  void registrarPublicacion(final String contenidoPublicacion, final ParseUser usuario,
+                                      final String tipo, final Date fecha/*, final ParseObject grupo*/) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ParseObject publicacion = new ParseObject("Publicacion");
+                publicacion.put("contenido", contenidoPublicacion);
+                publicacion.put("usuario", usuario);
+                publicacion.put("tipoPublicacion", tipo);
+                publicacion.put("createdAt", fecha);
+                //publicacion.put("grupo", grupo);
+
+                publicacion.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            Toast.makeText(activity.getApplicationContext(), "Publicación compartida", Toast.LENGTH_SHORT).show();
+                        } else {
+                            lanzarAlert("ERROR PUBLICACION", e.getMessage());
+                        }
+                    }
+                });
+
+            }
+        }).start();
+    }
+
+
+    public void getPublicaciones(final ArrayList<ParseObject> lista,final String tipoPublicacion) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //ParseQuery<ParseObject>
+            }
+        }).start();
+    }
 
     public AppCompatActivity getActivity() {
         return activity;

@@ -39,6 +39,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".vista.ActivityLogin" />
         </activity>
+        <activity
+            android:name=".vista.PublicacionActivity"
+            android:parentActivityName=".vista.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".vista.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

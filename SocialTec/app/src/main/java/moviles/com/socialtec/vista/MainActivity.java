@@ -33,11 +33,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         agregarToolbar();
-
-
-
-
-
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
@@ -50,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         final Context context = this.getApplicationContext();
         final TextView username = (TextView) navigationView.getHeaderView(0).findViewById(R.id.username);
         final TextView nickname= (TextView) navigationView.getHeaderView(0).findViewById(R.id.nickname);
-
 
         new Thread(new Runnable() {
             @Override
@@ -122,7 +116,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_grupos:
                 fragmentoGenerico = new FragmentoGrupo();
                 break;
+            case R.id.nav_ajustes:
+                fragmentoGenerico = new FragmentoPerfil();
             case R.id.nav_cerrar_sesion:
+                ParseUser.logOut();
                 intent = new Intent(getApplicationContext(), ActivityLogin.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 finish();

@@ -20,11 +20,6 @@ public class Publicacion {
     private String fechaPublicacion;
     private String contenido;
     private Usuario usuario;
-    static {
-        PUBLICACIONES.add(new Publicacion("Testing 1", Usuario.USUARIOS.get(0)));
-        PUBLICACIONES.add(new Publicacion("Testing 2", Usuario.USUARIOS.get(2)));
-        PUBLICACIONES.add(new Publicacion("Testing 3", Usuario.USUARIOS.get(1)));
-    }
 
 
     public Publicacion(String contenido, Usuario usuario) {

@@ -1,13 +1,22 @@
 package moviles.com.socialtec.controlador;
 
+import android.app.ProgressDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import moviles.com.socialtec.R;
 import moviles.com.socialtec.modelo.Publicacion;
@@ -17,6 +26,9 @@ import moviles.com.socialtec.modelo.Publicacion;
  */
 public class AdaptadorInicio
         extends RecyclerView.Adapter<AdaptadorInicio.ViewHolder> {
+
+    private ArrayList<ParseObject> publicaciones;
+    private boolean cambioEstado;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // Campos respectivos de un item
@@ -35,7 +47,9 @@ public class AdaptadorInicio
         }
     }
 
-    public AdaptadorInicio() {
+    public AdaptadorInicio(ArrayList<ParseObject> publicaciones) {
+        this.publicaciones = publicaciones;
+        this.cambioEstado = false;
     }
 
     @Override
@@ -47,28 +61,39 @@ public class AdaptadorInicio
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Publicacion item = Publicacion.PUBLICACIONES.get(position);
-
-        if (position%2 == 0)
-            item.getUsuario().setImagenUsuario(R.drawable.perfil1);
-        else
-            item.getUsuario().setImagenUsuario(R.drawable.perfil2);
-
-        Glide.with(holder.itemView.getContext())
-                .load(item.getUsuario().getImagenUsuario())
-                .centerCrop()
-                .into(holder.imagenUsuario);
-        holder.nickname.setText(item.getUsuario().getNickname());
-        holder.contenido.setText(item.getContenido());
-        holder.tiempo.setText(item.getFechaPublicacion());
 
 
+        if (publicaciones.size() > 0) {
+            ParseObject item = publicaciones.get(position);
+
+            try {
+                holder.nickname.setText(item.getParseUser("usuario").fetchIfNeeded().getUsername());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            holder.contenido.setText(item.getString("contenido"));
+            DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+            //df.setTimeZone();
+            holder.tiempo.setText( df.format(item.getCreatedAt()));
+
+
+        } else {
+
+        }
     }
 
     @Override
     public int getItemCount() {
+        return this.publicaciones.size();
+    }
 
-        return Publicacion.PUBLICACIONES.size();
+    public ArrayList<ParseObject> getPublicaciones() {
+        return publicaciones;
+    }
+
+    public void setPublicaciones(ArrayList<ParseObject> publicaciones) {
+        this.publicaciones = publicaciones;
     }
 
 

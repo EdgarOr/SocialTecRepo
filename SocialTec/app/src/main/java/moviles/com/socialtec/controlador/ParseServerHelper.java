@@ -1,13 +1,15 @@
 package moviles.com.socialtec.controlador;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
+import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -19,6 +21,7 @@ import com.parse.SignUpCallback;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import moviles.com.socialtec.vista.MainActivity;
 
@@ -28,7 +31,7 @@ import moviles.com.socialtec.vista.MainActivity;
 
 public class ParseServerHelper {
 
-    private Context context;
+
     private final AppCompatActivity activity;
 
     public ParseServerHelper(AppCompatActivity activity) {
@@ -36,11 +39,12 @@ public class ParseServerHelper {
 
     }
 
-    public void inicializarParse() {
+    public static void inicializarParse(final Application application) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Parse.initialize(new Parse.Configuration.Builder(activity.getApplicationContext())
+
+                Parse.initialize(new Parse.Configuration.Builder(application.getApplicationContext())
                         .applicationId("4mzxRwdDo3ww4z8SXqHsadNK6ctQAM1qWTHT4i8y")
                         .clientKey("elKm9p1B3XFswo7GgwDJ6OHCzzyD3njvxZLlKj0s")
                         .server("https://parseapi.back4app.com/").build()
@@ -86,12 +90,10 @@ public class ParseServerHelper {
 
     }
 
-    /**
-     *
-     * @param nickname
-     * @param contraseña
-     */
     public void loginUsuario(final String nickname, final String contraseña) {
+        final ProgressDialog progressDialog = new ProgressDialog(activity);
+        progressDialog.setMessage("Iniciando sesión...");
+        progressDialog.show();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -102,6 +104,7 @@ public class ParseServerHelper {
                                 Intent i = new Intent(activity.getApplicationContext(), MainActivity.class);
                                 activity.finish();
                                 activity.startActivity(i);
+                                progressDialog.dismiss();
                                 Toast.makeText(activity.getApplicationContext(),"Bienvenido " + nickname, Toast.LENGTH_SHORT).show();
                             } else {
                                 lanzarAlert("Login Error", e.getMessage());
@@ -159,14 +162,31 @@ public class ParseServerHelper {
     }
 
 
-    public void getPublicaciones(final ArrayList<ParseObject> lista,final String tipoPublicacion) {
-        new Thread(new Runnable() {
+    public void getPublicaciones(final AdaptadorInicio adaptadorInicio ,final String tipoPublicacion) {
+        final ArrayList<ParseObject> lista = new ArrayList<>();
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Publicacion");
+        query.whereEqualTo("tipoPublicacion",tipoPublicacion);
+        query.orderByDescending("createdAt");
+        query.findInBackground(new FindCallback<ParseObject>() {
             @Override
-            public void run() {
-                //ParseQuery<ParseObject>
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                if (e == null ) {
+                    lista.addAll(objects);
+                    adaptadorInicio.setPublicaciones(lista);
+                    adaptadorInicio.notifyDataSetChanged();
+                    Log.e("OBJETO", objects.size()+"");
+                } else {
+                    String listaVacia = objects.isEmpty()? "Lista vacía. " : "";
+                    lanzarAlert("Error load posts", listaVacia + "Error quiensabe");
+                }
             }
-        }).start();
+        });
+
+
+
     }
+
 
     public AppCompatActivity getActivity() {
         return activity;

@@ -27,7 +27,6 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         helper = new ParseServerHelper(this);
-        helper.inicializarParse();
 
         username = (EditText) findViewById(R.id.et_user);
         password= (EditText) findViewById(R.id.et_pass);

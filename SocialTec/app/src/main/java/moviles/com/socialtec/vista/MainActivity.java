@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseException;
 import com.parse.ParseUser;
 
 import moviles.com.socialtec.R;
@@ -111,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (itemDrawer.getItemId()) {
             case R.id.nav_home:
-                fragmentoGenerico = new FragmentoInicio();
+                FragmentoInicio a = new FragmentoInicio();
+                a.setActivity(this);
+                fragmentoGenerico = a;
                 break;
             case R.id.nav_grupos:
                 fragmentoGenerico = new FragmentoGrupo();
@@ -119,7 +122,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_ajustes:
                 fragmentoGenerico = new FragmentoPerfil();
             case R.id.nav_cerrar_sesion:
-                ParseUser.logOut();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ParseUser.logOut();
+                    }
+                }).start();
+
                 intent = new Intent(getApplicationContext(), ActivityLogin.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 finish();

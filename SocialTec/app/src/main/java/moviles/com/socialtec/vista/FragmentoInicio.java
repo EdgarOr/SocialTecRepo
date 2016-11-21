@@ -3,8 +3,6 @@ package moviles.com.socialtec.vista;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,20 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
 import moviles.com.socialtec.R;
-import moviles.com.socialtec.controlador.AdaptadorInicio;
+import moviles.com.socialtec.controlador.AdaptadorNoticia;
 import moviles.com.socialtec.controlador.ParseServerHelper;
-import moviles.com.socialtec.controlador.RecyclerItemClickListener;
-import moviles.com.socialtec.modelo.Comentario;
-import moviles.com.socialtec.modelo.Publicacion;
 
 
 /**
@@ -38,7 +31,7 @@ public class FragmentoInicio extends Fragment {
     private RecyclerView recycler;
     private static  AppCompatActivity activity;
     private LinearLayoutManager manager;
-    private AdaptadorInicio adaptador;
+    private AdaptadorNoticia adaptadorNoticia;
     private ParseServerHelper helper;
 
     public FragmentoInicio() {
@@ -48,7 +41,7 @@ public class FragmentoInicio extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        helper.getPublicaciones(adaptador,"publica");
+        helper.getPublicaciones(adaptadorNoticia,"publica");
     }
 
     @Override
@@ -75,11 +68,12 @@ public class FragmentoInicio extends Fragment {
             }
         });
 
-        helper = new ParseServerHelper(activity);
+        helper = new ParseServerHelper(activity, this);
 
-        adaptador = new AdaptadorInicio(new ArrayList<ParseObject>());
-        helper.getPublicaciones(adaptador,"publica");
-        recycler.setAdapter(adaptador);
+        adaptadorNoticia = new AdaptadorNoticia(new ArrayList<ParseObject>(), ParseServerHelper.getCurrentUser().getUsername());
+        helper.getPublicaciones(adaptadorNoticia,"publica");
+        recycler.setAdapter(adaptadorNoticia);
+        /*
         recycler.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {}
@@ -91,6 +85,7 @@ public class FragmentoInicio extends Fragment {
 
             }
         }));
+        * */
 
 
 
@@ -99,5 +94,13 @@ public class FragmentoInicio extends Fragment {
 
     public void setActivity(AppCompatActivity activity) {
         this.activity = activity;
+    }
+
+    public RecyclerView getRecycler() {
+        return recycler;
+    }
+
+    public void setRecycler(RecyclerView recycler) {
+        this.recycler = recycler;
     }
 }

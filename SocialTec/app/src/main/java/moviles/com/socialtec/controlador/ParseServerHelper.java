@@ -5,11 +5,14 @@ import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -23,6 +26,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import moviles.com.socialtec.R;
+import moviles.com.socialtec.vista.FragmentoInicio;
 import moviles.com.socialtec.vista.MainActivity;
 
 /**
@@ -33,10 +38,16 @@ public class ParseServerHelper {
 
 
     private final AppCompatActivity activity;
+    private Fragment fragmento;
 
     public ParseServerHelper(AppCompatActivity activity) {
         this.activity = activity;
 
+    }
+
+    public ParseServerHelper(AppCompatActivity activity, Fragment fragmento) {
+        this.activity = activity;
+        this.fragmento = fragmento;
     }
 
     public static void inicializarParse(final Application application) {
@@ -107,6 +118,7 @@ public class ParseServerHelper {
                                 progressDialog.dismiss();
                                 Toast.makeText(activity.getApplicationContext(),"Bienvenido " + nickname, Toast.LENGTH_SHORT).show();
                             } else {
+                                progressDialog.dismiss();
                                 lanzarAlert("Login Error", e.getMessage());
                             }
                     }
@@ -136,6 +148,9 @@ public class ParseServerHelper {
 
     public  void registrarPublicacion(final String contenidoPublicacion, final ParseUser usuario,
                                       final String tipo, final Date fecha/*, final ParseObject grupo*/) {
+        final ProgressDialog progressDialog = new ProgressDialog(activity);
+        progressDialog.setMessage("Publicando...");
+        progressDialog.show();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -146,12 +161,16 @@ public class ParseServerHelper {
                 publicacion.put("createdAt", fecha);
                 //publicacion.put("grupo", grupo);
 
+
                 publicacion.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            Toast.makeText(activity.getApplicationContext(), "Publicación compartida", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            activity.finish();
+                            //Toast.makeText(activity.getApplicationContext(), "Publicación compartida", Toast.LENGTH_SHORT).show();
                         } else {
+                            progressDialog.dismiss();
                             lanzarAlert("ERROR PUBLICACION", e.getMessage());
                         }
                     }
@@ -162,7 +181,35 @@ public class ParseServerHelper {
     }
 
 
-    public void getPublicaciones(final AdaptadorInicio adaptadorInicio ,final String tipoPublicacion) {
+    public void editarPublicacion(final String idPublicacion, final String contenido) {
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Publicacion");
+        query.getInBackground(idPublicacion, new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject publicacion, ParseException e) {
+                if (e == null ) {
+                    if  (!publicacion.get("contenido").equals(contenido)) {
+
+                        publicacion.put("contenido", contenido);
+                        try {
+                            publicacion.save();
+                        } catch (ParseException e1) {
+                            e1.printStackTrace();
+                        }
+                        activity.finish();
+                    }
+
+                    Toast.makeText(activity.getApplicationContext(), "Publicacion editada", Toast.LENGTH_SHORT).show();
+                } else {
+                    lanzarAlert("ERROR EDITAR",e.getMessage());
+
+                }
+            }
+        });
+    }
+
+
+    public void getPublicaciones(final AdaptadorNoticia adaptadorNoticia, final String tipoPublicacion) {
         final ArrayList<ParseObject> lista = new ArrayList<>();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Publicacion");
         query.whereEqualTo("tipoPublicacion",tipoPublicacion);
@@ -173,9 +220,9 @@ public class ParseServerHelper {
 
                 if (e == null ) {
                     lista.addAll(objects);
-                    adaptadorInicio.setPublicaciones(lista);
-                    adaptadorInicio.notifyDataSetChanged();
-                    Log.e("OBJETO", objects.size()+"");
+                    adaptadorNoticia.setPublicaciones(lista);
+                    adaptadorNoticia.notifyDataSetChanged();
+
                 } else {
                     String listaVacia = objects.isEmpty()? "Lista vacía. " : "";
                     lanzarAlert("Error load posts", listaVacia + "Error quiensabe");

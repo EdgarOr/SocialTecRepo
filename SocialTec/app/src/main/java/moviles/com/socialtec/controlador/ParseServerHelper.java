@@ -5,6 +5,7 @@ import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,8 +28,12 @@ import java.util.Date;
 import java.util.List;
 
 import moviles.com.socialtec.R;
+import moviles.com.socialtec.modelo.Grupo;
+import moviles.com.socialtec.modelo.Usuario;
 import moviles.com.socialtec.vista.FragmentoInicio;
 import moviles.com.socialtec.vista.MainActivity;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by Edgar on 01/11/2016.
@@ -234,6 +239,72 @@ public class ParseServerHelper {
 
     }
 
+
+    public void crearGrupo (final String nombreGrupo, final Date date) {
+        final ProgressDialog progressDialog = new ProgressDialog(activity);
+        progressDialog.setMessage("Creando grupo...");
+        progressDialog.show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ParseObject publicacion = new ParseObject("Grupo");
+                publicacion.put("nombre", nombreGrupo);
+                publicacion.put("usuario", getCurrentUser());
+                publicacion.put("createdAt", date);
+                //publicacion.put("grupo", grupo);
+
+
+                publicacion.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            progressDialog.dismiss();
+
+                            Bundle conData = new Bundle();
+                            conData.putString("param_result", "Thanks Thanks");
+                            Intent intent = new Intent();
+                            intent.putExtras(conData);
+                            activity.setResult(RESULT_OK, intent);
+                            activity.finish();
+
+                            activity.finish();
+                            //Toast.makeText(activity.getApplicationContext(), "Publicación compartida", Toast.LENGTH_SHORT).show();
+                        } else {
+                            progressDialog.dismiss();
+                            lanzarAlert("ERROR PUBLICACION", e.getMessage());
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
+
+    public ArrayList<Grupo> getGrupos(final GrupoAdapter grupoAdapter) {
+        final ArrayList<Grupo> lista = new ArrayList<>();
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Grupo");
+        query.orderByAscending("nombre");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                if (e == null ) {
+                    for (int i = 0; i < objects.size(); i++) {
+                        ParseObject o = objects.get(i);
+                        lista.add(new Grupo((String) o.get("nombre"), new Usuario()));
+                    }
+                    grupoAdapter.setGrupos(lista);
+                    grupoAdapter.notifyDataSetChanged();
+                    //lista.addAll(objects);
+                    //grupoAdapter.setGrupos(lista);
+                    //grupoAdapter.notifyDataSetChanged();
+                } else {
+                    String listaVacia = objects.isEmpty()? "Lista vacía. " : "";
+                    lanzarAlert("Error load posts", listaVacia + "Error quiensabe");
+                }
+            }
+        });
+        return lista;
+    }
 
     public AppCompatActivity getActivity() {
         return activity;

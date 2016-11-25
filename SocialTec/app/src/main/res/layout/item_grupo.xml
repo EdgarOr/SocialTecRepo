@@ -9,6 +9,7 @@
         android:layout_width="@dimen/perfil_image_size"
         android:layout_height="@dimen/perfil_image_size" />
     <TextView
+        android:id="@+id/textViewItemGrupo"
         android:text="Herramientas de Desarrollo Agiles"
         android:padding="10dp"
         android:textSize="20sp"

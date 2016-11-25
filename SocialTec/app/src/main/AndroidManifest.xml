@@ -13,11 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".vista.ActivityLogin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".vista.MainActivity"
@@ -42,10 +37,18 @@
         </activity>
         <activity
             android:name=".vista.PublicacionActivity"
-            android:parentActivityName=".vista.MainActivity" >
+            android:parentActivityName=".vista.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".vista.MainActivity" />
+        </activity>
+        <activity android:name=".vista.GrupoAltaActivity" />
+        <activity android:name=".DispatchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

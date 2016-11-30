@@ -3,58 +3,61 @@ package moviles.com.socialtec.modelo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Edgar on 09/10/2016.
  */
 
-public class Comentario implements Parcelable{
+public class Comentario {
 
     public static final ArrayList<Comentario> COMENTARIOS = new ArrayList<>();
 
-    private Usuario usuario;
-    private Publicacion publicacion;
+    private ParseUser usuario;
+    private ParseObject publicacion;
     private String contenidoComentario;
-    private String fechaComentario;
+    private Date fechaComentario;
+    private String idComentario;
 
-    static {
-        COMENTARIOS.add(new Comentario(Usuario.USUARIOS.get(3), Publicacion.PUBLICACIONES.get(0),"Que cools"));
-        COMENTARIOS.add(new Comentario(Usuario.USUARIOS.get(0), Publicacion.PUBLICACIONES.get(0),"Que chido"));
-        COMENTARIOS.add(new Comentario(Usuario.USUARIOS.get(2), Publicacion.PUBLICACIONES.get(2),"Oye pero que chido"));
-        COMENTARIOS.add(new Comentario(Usuario.USUARIOS.get(1), Publicacion.PUBLICACIONES.get(1),"Wow!"));
-        COMENTARIOS.add(new Comentario(Usuario.USUARIOS.get(1), Publicacion.PUBLICACIONES.get(1),"Wow!"));
-    }
-
-    public Comentario(Usuario usuario, Publicacion publicacion, String contenidoComentario) {
-        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
-        this.fechaComentario = df.format(Calendar.getInstance().getTime());
+    public Comentario(ParseUser usuario, ParseObject publicacion, String contenidoComentario, Date fechaComentario) {
         this.usuario = usuario;
         this.publicacion = publicacion;
         this.contenidoComentario = contenidoComentario;
+        this.fechaComentario = fechaComentario;
     }
 
-
-    public String getFechaComentario() {
-        return fechaComentario;
+    public Comentario(ParseUser usuario, ParseObject publicacion, String contenidoComentario, Date fechaComentario, String idComentario) {
+        this.usuario = usuario;
+        this.publicacion = publicacion;
+        this.contenidoComentario = contenidoComentario;
+        this.fechaComentario = fechaComentario;
+        this.idComentario = idComentario;
     }
 
-    public Usuario getUsuario() {
+    public Comentario() {
+        this(ParseUser.getCurrentUser(), null, "contenido nulo", Calendar.getInstance().getTime());
+    }
+
+    public ParseUser getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(ParseUser usuario) {
         this.usuario = usuario;
     }
 
-    public Publicacion getPublicacion() {
+    public ParseObject getPublicacion() {
         return publicacion;
     }
 
-    public void setPublicacion(Publicacion publicacion) {
+    public void setPublicacion(ParseObject publicacion) {
         this.publicacion = publicacion;
     }
 
@@ -66,67 +69,19 @@ public class Comentario implements Parcelable{
         this.contenidoComentario = contenidoComentario;
     }
 
-
-    public Comentario(Parcel in) {
-        super();
-        readFromParcel(in);
+    public Date getFechaComentario() {
+        return fechaComentario;
     }
 
-    public static final Parcelable.Creator<Comentario> CREATOR = new Parcelable.Creator<Comentario>() {
-        public Comentario createFromParcel(Parcel in) {
-            return new Comentario(in);
-        }
-
-        public Comentario[] newArray(int size) {
-
-            return new Comentario[size];
-        }
-
-    };
-
-    public void readFromParcel(Parcel in) {
-
-        usuario.setNickname(in.readString());
-        usuario.setNombre(in.readString());
-        usuario.setContraseña(in.readString());
-        usuario.setImagenUsuario(in.readInt());
-
-        Usuario user = new Usuario();
-        publicacion.setContenido(in.readString());
-        publicacion.setFechaPublicacion(in.readString());
-        user.setNickname(in.readString());
-        user.setNombre(in.readString());
-        user.setContraseña(in.readString());
-        user.setImagenUsuario(in.readInt());
-        publicacion.setUsuario(user);
-
-        contenidoComentario = in.readString();
-        fechaComentario = in.readString();
-    }
-    @Override
-    public int describeContents() {
-        return 0;
+    public void setFechaComentario(Date fechaComentario) {
+        this.fechaComentario = fechaComentario;
     }
 
+    public String getIdComentario() {
+        return idComentario;
+    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-        dest.writeString(usuario.getNickname());
-        dest.writeString(usuario.getNombre());
-        dest.writeString(usuario.getContraseña());
-        dest.writeInt(usuario.getImagenUsuario());
-
-        Usuario user = publicacion.getUsuario();
-        dest.writeString(publicacion.getContenido());
-        dest.writeString(publicacion.getFechaPublicacion());
-        dest.writeString(user.getNickname());
-        dest.writeString(user.getNombre());
-        dest.writeString(user.getContraseña());
-        dest.writeInt(user.getImagenUsuario());
-
-        dest.writeString(contenidoComentario);
-        dest.writeString(fechaComentario);
-
+    public void setIdComentario(String idComentario) {
+        this.idComentario = idComentario;
     }
 }

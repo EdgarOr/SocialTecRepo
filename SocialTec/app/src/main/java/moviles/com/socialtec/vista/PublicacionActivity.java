@@ -80,13 +80,8 @@ public class PublicacionActivity extends AppCompatActivity {
                 } catch(Exception e) {
                     Log.e("ERRORRR", e.getMessage());
                 }
-
-
-
             }
         });
-
-
     }
 
 

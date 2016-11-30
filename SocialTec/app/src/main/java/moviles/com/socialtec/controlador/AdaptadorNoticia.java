@@ -34,9 +34,8 @@ public class AdaptadorNoticia
     private String usuario;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        // Campos respectivos de un item
-        public String idPublicacion;
 
+        public String idPublicacion;
         public TextView nickname;
         public TextView contenido;
         public TextView tiempo;
@@ -67,22 +66,24 @@ public class AdaptadorNoticia
             switch (v.getId()) {
                 case R.id.editar_imageb:
                     if (ParseServerHelper.getCurrentUser().getUsername().equals(nickname.getText().toString())){
-                        Intent i = new Intent(v.getContext(), PublicacionActivity.class);
-                        i.putExtra("idPublicacion", idPublicacion);
-                        i.putExtra("nickname", nickname.getText().toString());
-                        i.putExtra("contenido", contenido.getText().toString());
-                        i.putExtra("tiempo", tiempo.getText().toString());
-                        v.getContext().startActivity(i);
+                        Intent intentPublicacion = new Intent(v.getContext(), PublicacionActivity.class);
+                        intentPublicacion.putExtra("idPublicacion", idPublicacion);
+                        intentPublicacion.putExtra("nickname", nickname.getText().toString());
+                        intentPublicacion.putExtra("contenido", contenido.getText().toString());
+                        intentPublicacion.putExtra("tiempo", tiempo.getText().toString());
+                        v.getContext().startActivity(intentPublicacion);
 
                     } else {
                         Toast.makeText(v.getContext(), "No puede editar esta noticia", Toast.LENGTH_SHORT).show();
                     }
-
-//                    Toast.makeText(v.getContext(), "ID PUB: " + idPublicacion, Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.comentar_imageb:
-                    Intent intent = new Intent(v.getContext(), CommentActivity.class);
-                    v.getContext().startActivity(intent);
+                    Intent intentComentario = new Intent(v.getContext(), CommentActivity.class);
+                    intentComentario.putExtra("idPublicacion", idPublicacion);
+                    intentComentario.putExtra("nickname", nickname.getText().toString());
+                    intentComentario.putExtra("contenido", contenido.getText().toString());
+                    intentComentario.putExtra("tiempo", tiempo.getText().toString());
+                    v.getContext().startActivity(intentComentario);
                     break;
 
             }

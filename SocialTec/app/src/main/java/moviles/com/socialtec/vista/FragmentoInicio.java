@@ -73,21 +73,6 @@ public class FragmentoInicio extends Fragment {
         adaptadorNoticia = new AdaptadorNoticia(new ArrayList<ParseObject>(), ParseServerHelper.getCurrentUser().getUsername());
         helper.getPublicaciones(adaptadorNoticia,"publica");
         recycler.setAdapter(adaptadorNoticia);
-        /*
-        recycler.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recycler, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {}
-
-            @Override
-            public void onItemLongClick(View view, int position) {
-                Intent intent = new Intent(view.getContext(), CommentActivity.class);
-                startActivity(intent);
-
-            }
-        }));
-        * */
-
-
 
         return v;
     }
@@ -96,11 +81,5 @@ public class FragmentoInicio extends Fragment {
         this.activity = activity;
     }
 
-    public RecyclerView getRecycler() {
-        return recycler;
-    }
 
-    public void setRecycler(RecyclerView recycler) {
-        this.recycler = recycler;
-    }
 }

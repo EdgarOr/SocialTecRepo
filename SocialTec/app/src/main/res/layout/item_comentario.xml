@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:padding="@dimen/activity_horizontal_margin"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:backgroundTint="#EEEEEE">
 
     <LinearLayout
+        android:id="@+id/header_comentario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -24,10 +26,21 @@
             android:textSize="20sp"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:paddingLeft="10dp"/>
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"/>
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/delete_comment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/eliminar_vector_24dp"
+        android:background="@android:color/transparent"
+        android:layout_alignParentEnd="true"/>
+
     <TextView
+        android:layout_marginStart="30dp"
+        android:layout_below="@id/header_comentario"
         android:id="@+id/comentario_txt_view"
         android:text="WOW Que cools!"
         android:layout_width="wrap_content"
@@ -36,15 +49,18 @@
         android:textColor="@android:color/black" />
 
 
+
     <TextView
+        android:layout_below="@id/comentario_txt_view"
         android:id="@+id/tiempo_txt_view"
         android:text="Algun tiempo de hoy"
         android:textSize="15sp"
-        android:textColor="@color/colorTiempoTxtV"
+        android:textColor="#616161"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

@@ -33,6 +33,7 @@ public class PublicacionActivity extends AppCompatActivity {
     private TextView nickname_txt;
     private EditText contenidoPublicacion;
     private Date fechaPublicacion;
+    private String nombreGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class PublicacionActivity extends AppCompatActivity {
         contenidoPublicacion = (EditText) findViewById(R.id.publicacion_edit);
         nickname_txt  = (TextView) findViewById(R.id.nickname_txt_view);
         helper = new ParseServerHelper(this);
+
+        nombreGrupo = getIntent().getStringExtra("nombre");
 
         indice = info.getBooleanExtra("indice", false);
         // add back arrow to toolbar
@@ -76,7 +79,11 @@ public class PublicacionActivity extends AppCompatActivity {
 
                 try {
                     if (indice)
-                        helper.editarPublicacion(idPublicacion, contenidoPublicacion.getText().toString());
+                        if (nombreGrupo == null) {
+                            helper.registrarPublicacion(contenidoPublicacion.getText().toString(), parseUser, "publica", fechaPublicacion);
+                        } else {
+                            helper.registrarPublicacionGrupo(contenidoPublicacion.getText().toString(), parseUser, "grupo", fechaPublicacion, nombreGrupo);
+                        }
                     else {
                         helper.registrarPublicacion(contenidoPublicacion.getText().toString(), parseUser, "publica", fechaPublicacion);
                     }

@@ -49,7 +49,7 @@ public class FragmentoInicio extends Fragment {
         if (nombreGrupo == null) {
             helper.getPublicaciones(adaptadorNoticia, "publica");
         } else {
-            helper.getPublicacionesGrupo(adaptadorNoticia, "publica", nombreGrupo);
+            helper.getPublicacionesGrupo(adaptadorNoticia, "grupo", nombreGrupo);
         }
     }
 

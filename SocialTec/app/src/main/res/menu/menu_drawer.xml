@@ -20,21 +20,16 @@
             android:title="@string/mensajes_item" />
 
 
-        <!-- Sección de configuración -->
         <item
-            android:id="@+id/configuration_section"
-            android:title="@string/configuracion_item">
-            <menu>
-                <item
-                    android:id="@+id/nav_ajustes"
-                    android:icon="@drawable/ic_ajustes"
-                    android:title="@string/ajustes_item" />
-                <item
-                    android:id="@+id/nav_cerrar_sesion"
-                    android:icon="@android:drawable/ic_lock_power_off"
-                    android:title="@string/cerrar_sesion_item" />
-            </menu>
-        </item>
+            android:id="@+id/nav_ajustes"
+            android:icon="@drawable/ic_ajustes"
+            android:title="@string/perfil_item" />
+        <item
+            android:id="@+id/nav_cerrar_sesion"
+            android:icon="@android:drawable/ic_lock_power_off"
+            android:title="@string/cerrar_sesion_item" />
+
+
     </group>
 
 </menu>

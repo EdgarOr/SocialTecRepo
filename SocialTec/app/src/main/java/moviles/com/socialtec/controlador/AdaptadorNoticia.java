@@ -67,6 +67,7 @@ public class AdaptadorNoticia
                 case R.id.editar_imageb:
                     if (ParseServerHelper.getCurrentUser().getUsername().equals(nickname.getText().toString())){
                         Intent intentPublicacion = new Intent(v.getContext(), PublicacionActivity.class);
+                        intentPublicacion.putExtra("indice",true);
                         intentPublicacion.putExtra("idPublicacion", idPublicacion);
                         intentPublicacion.putExtra("nickname", nickname.getText().toString());
                         intentPublicacion.putExtra("contenido", contenido.getText().toString());

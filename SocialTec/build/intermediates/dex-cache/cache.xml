@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="6b703d33940915a4e9cb5123292c34f503168e96">
+        sha1="5c74859ad615a374f0305e13136e02865d521d53">
         <dex dex="C:\android\SocialTecRepo\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_eab08ca1d93bd696e1094f80d957c49773fc03b8\classes.dex" />
     </item>
     <item
@@ -223,7 +223,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="4668142719e5e350e11ba3f6918d0dde889610a9">
+        sha1="a9b020d89a26c158ffc03f2cdc895c29cb546cee">
         <dex dex="C:\android\SocialTecRepo\SocialTec\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_51a1bcc128b6cb859e476a7609170d9a90343d47\classes.dex" />
     </item>
 

@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import moviles.com.socialtec.R;
 import moviles.com.socialtec.controlador.ParseServerHelper;
 
+import static moviles.com.socialtec.modelo.Colecciones.carrerasArray;
+import static moviles.com.socialtec.modelo.Colecciones.semestresArray;
+
 
 public class ActivityRegistro extends AppCompatActivity implements View.OnClickListener {
 
@@ -59,17 +62,9 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
     }
 
     public void inicializarSpinners() {
-        ArrayList<String> carrerasArray = new ArrayList<>();
-        ArrayList<String> semestresArray = new ArrayList<>();
 
-        for (int i = 1; i <= 12; i++) {
-            semestresArray.add("" + i);
-        }
 
-        carrerasArray.add("Ing. en Sistemas");
-        carrerasArray.add("Ing. Industrial");
-        carrerasArray.add("Ing. Química");
-        carrerasArray.add("Ing. en Energías Renovables");
+
 
         carrera.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, carrerasArray));
         semestre.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, semestresArray));

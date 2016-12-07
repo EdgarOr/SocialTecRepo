@@ -117,10 +117,15 @@ public class MainActivity extends AppCompatActivity {
                 fragmentoGenerico = a;
                 break;
             case R.id.nav_grupos:
-                fragmentoGenerico = new FragmentoGrupo();
+                FragmentoGrupo grupo = new FragmentoGrupo();
+                grupo.setActivity(this);
+                fragmentoGenerico = grupo;
                 break;
             case R.id.nav_ajustes:
-                fragmentoGenerico = new FragmentoPerfil();
+                FragmentoPerfil perfil = new FragmentoPerfil();
+                perfil.setActivity(this);
+                fragmentoGenerico = perfil;
+                break;
             case R.id.nav_cerrar_sesion:
                 new Thread(new Runnable() {
                     @Override

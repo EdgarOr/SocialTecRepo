@@ -64,6 +64,7 @@ public class FragmentoInicio extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), PublicacionActivity.class);
+                i.putExtra("indice",false);
                 startActivity(i);
             }
         });

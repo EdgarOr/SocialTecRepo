@@ -136,6 +136,23 @@ public class ParseServerHelper {
 
     }
 
+    public void changePassword(final String nickname, final String contraseñaActual, final String contraseñaNueva) {
+        lanzarProgressDialog("Cambiando contraseña");
+        ParseUser.logInInBackground(nickname, contraseñaActual, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                progressDialog.dismiss();
+                if (e == null) {
+                    user.setPassword(contraseñaNueva);
+                    user.saveInBackground();
+                    lanzarAlert("Cambiar contraseña","Su contraseña fue actualizada con éxito.");
+                }   else {
+                    lanzarAlert("Cambiar contraseña", "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
+
     public static ParseUser getCurrentUser() {
         return ParseUser.getCurrentUser();
     }

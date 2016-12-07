@@ -24,11 +24,13 @@
 
             <!-- Card NumControl -->
             <android.support.v7.widget.CardView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/card_margin">
 
                 <LinearLayout
+                    android:padding="10dp"
                     style="@style/CardView"
                     android:layout_width="match_parent"
                     android:orientation="vertical"
@@ -42,9 +44,9 @@
 
                     <EditText
                         android:id="@+id/numcontrol_edit"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
+
                         android:hint="E12020823"
                         android:inputType="text"
                         android:textSize="@dimen/texto_size"
@@ -54,6 +56,41 @@
 
             </android.support.v7.widget.CardView>
             <!-- Card NumControl -->
+            <!-- Card Nickname -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:layout_marginLeft="@dimen/card_margin"
+                android:layout_marginRight="@dimen/card_margin">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    style="@style/CardView"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <!--Etiqueta Perfil -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nickname"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                    <EditText
+                        android:id="@+id/nickname_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="username"
+                        android:inputType="text"
+                        android:textSize="@dimen/texto_size"
+                        android:enabled="false"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <!-- Card Nickname -->
 
             <!-- Card Nombre y Apellido -->
             <android.support.v7.widget.CardView
@@ -64,6 +101,7 @@
                 android:layout_marginRight="@dimen/card_margin">
 
                 <LinearLayout
+                    android:padding="10dp"
                     style="@style/CardView"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -132,6 +170,7 @@
                 android:layout_marginRight="@dimen/card_margin">
 
                 <LinearLayout
+                    android:padding="10dp"
                     style="@style/CardView"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -152,7 +191,7 @@
                         <!-- Texto de ejemplo -->
                         <Spinner
                             android:id="@+id/semestre_spinner"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/texto_size"
                             android:enabled="false"/>
@@ -190,15 +229,19 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/card_margin">
+                android:layout_marginBottom="@dimen/card_margin"
+                android:layout_marginLeft="@dimen/card_margin"
+                android:layout_marginRight="@dimen/card_margin">
 
                 <LinearLayout
+                    android:padding="10dp"
                     style="@style/CardView"
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
                     <!--Etiqueta Perfil -->
                     <TextView
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Correo electronico: "
@@ -206,11 +249,11 @@
                     <!--Texto de ejemplo-->
                     <EditText
                         android:id="@+id/correo_edit"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="example@mail.com"
-                        android:inputType="text"
+                        android:inputType="textEmailAddress"
                         android:textSize="@dimen/texto_size"
                         android:enabled="false"/>
                 </LinearLayout>
@@ -224,28 +267,40 @@
                 android:layout_marginLeft="@dimen/card_margin"
                 android:layout_marginRight="@dimen/card_margin">
 
-                <LinearLayout
+                <RelativeLayout
+                    android:layout_margin="10dp"
+                    android:id="@+id/linear"
                     style="@style/CardView"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2">
+                    android:layout_height="wrap_content">
 
+                        <Switch
+                            android:id="@+id/cambiar_pw_switch"
+                            android:shadowColor="@color/colorPrimaryDark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="wrap_content">
                         <TextView
+                            android:layout_toEndOf="@id/cambiar_pw_switch"
+                            android:id="@+id/etiqueta_cambiar_pw"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Contraseña actual:"
+                            android:text="@string/cambiar_contrase_a"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/colorPrimaryDark"/>
+
+                        <TextView
+                            android:layout_below="@id/cambiar_pw_switch"
+                            android:id="@+id/etiqueta_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/confirmar_correo"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
                         <!-- Texto de ejemplo -->
                         <EditText
+                            android:layout_below="@id/etiqueta_email"
                             android:id="@+id/pw_actual_edit"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="******"
@@ -253,22 +308,19 @@
                             android:textSize="@dimen/texto_size"
                             android:enabled="false"/>
 
-                    </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="wrap_content">
                         <TextView
+                            android:layout_below="@id/pw_actual_edit"
+                            android:id="@+id/etiqueta_pw"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nueva contraseña:"
+                            android:text="@string/contrase_a_nueva"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
                         <!-- Texto de ejemplo -->
                         <EditText
+                            android:layout_below="@id/etiqueta_pw"
                             android:id="@+id/pw_new_edit"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="******"
@@ -276,12 +328,21 @@
                             android:textSize="@dimen/texto_size"
                             android:enabled="false"/>
 
+                        <Button
+                            android:id="@+id/cambiar_pw_button"
+                            android:layout_below="@id/pw_new_edit"
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="@android:color/transparent"
+                            android:textStyle="bold"
+                            android:text="Cambiar"
+                            android:visibility="gone"/>
 
-                    </LinearLayout>
-                    <!-- Etiqueta Amigos -->
 
 
-                </LinearLayout>
+                </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -24,7 +25,7 @@ import moviles.com.socialtec.controlador.ParseServerHelper;
 public class PublicacionActivity extends AppCompatActivity {
 
     private String idPublicacion;
-
+    private boolean indice;
     private ParseUser parseUser;
     private ParseServerHelper helper;
 
@@ -45,24 +46,26 @@ public class PublicacionActivity extends AppCompatActivity {
         nickname_txt  = (TextView) findViewById(R.id.nickname_txt_view);
         helper = new ParseServerHelper(this);
 
+        indice = info.getBooleanExtra("indice", false);
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        if (info != null) {
+        if (indice ) {
             idPublicacion = info.getStringExtra("idPublicacion");
             nickname_txt.setText(info.getStringExtra("nickname"));
             contenidoPublicacion.setText(info.getStringExtra("contenido"));
             tiempo_txt.setText(info.getStringExtra("tiempo"));
+
 
         } else {
             DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
             fechaPublicacion = Calendar.getInstance().getTime();
             tiempo_txt.setText(df.format(fechaPublicacion));
 
-            parseUser = ParseServerHelper.getCurrentUser();
+            parseUser = ParseUser.getCurrentUser();
             nickname_txt.setText(parseUser.getUsername());
         }
 
@@ -72,11 +75,11 @@ public class PublicacionActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try {
-                    if (idPublicacion.isEmpty())
-
-                        helper.registrarPublicacion(contenidoPublicacion.getText().toString(), parseUser, "publica", fechaPublicacion);
-                    else
+                    if (indice)
                         helper.editarPublicacion(idPublicacion, contenidoPublicacion.getText().toString());
+                    else {
+                        helper.registrarPublicacion(contenidoPublicacion.getText().toString(), parseUser, "publica", fechaPublicacion);
+                    }
                 } catch(Exception e) {
                     Log.e("ERRORRR", e.getMessage());
                 }

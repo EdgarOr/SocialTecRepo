@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import moviles.com.socialtec.modelo.Grupo;
 public class FragmentoGrupo extends Fragment {
 
     private ListView lista;
+    private AppCompatActivity activity;
     private Button boton;
     private ParseServerHelper helper;
     private ArrayList<Grupo> grupos;
@@ -42,7 +44,7 @@ public class FragmentoGrupo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragmento_grupo, container, false);
-        helper = new ParseServerHelper(new MainActivity());
+        helper = new ParseServerHelper(activity);
         lista = (ListView) v.findViewById(R.id.lista);
 
         grupos = new ArrayList<>();
@@ -79,5 +81,10 @@ public class FragmentoGrupo extends Fragment {
     private void actualizarLista () {
         grupos = helper.getGrupos(grupoAdapter);
         lista.setAdapter(new GrupoAdapter(getView().getContext(), grupos));
+    }
+
+
+    public void setActivity(AppCompatActivity activity) {
+        this.activity = activity;
     }
 }

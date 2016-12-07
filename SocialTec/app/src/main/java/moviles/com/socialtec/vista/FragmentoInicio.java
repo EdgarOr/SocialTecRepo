@@ -29,19 +29,28 @@ import moviles.com.socialtec.controlador.ParseServerHelper;
 public class FragmentoInicio extends Fragment {
 
     private RecyclerView recycler;
-    private static  AppCompatActivity activity;
+    private static AppCompatActivity activity;
     private LinearLayoutManager manager;
     private AdaptadorNoticia adaptadorNoticia;
     private ParseServerHelper helper;
+    private String nombreGrupo;
 
     public FragmentoInicio() {
         // Required empty public constructor
     }
 
+    public void setNombreGrupo(String nombreGrupo) {
+        this.nombreGrupo = nombreGrupo;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
-        helper.getPublicaciones(adaptadorNoticia,"publica");
+        if (nombreGrupo == null) {
+            helper.getPublicaciones(adaptadorNoticia, "publica");
+        } else {
+            helper.getPublicacionesGrupo(adaptadorNoticia, "publica", nombreGrupo);
+        }
     }
 
     @Override
@@ -55,8 +64,8 @@ public class FragmentoInicio extends Fragment {
         recycler.setLayoutManager(manager);
 
         ParseUser user = ParseServerHelper.getCurrentUser();
-        if (user!= null) {
-            ((TextView)v.findViewById(R.id.nickname_txt_view)).setText(user.getUsername());
+        if (user != null) {
+            ((TextView) v.findViewById(R.id.nickname_txt_view)).setText(user.getUsername());
         }
 
         LinearLayout linear = (LinearLayout) v.findViewById(R.id.linear_publicacion);
@@ -64,7 +73,7 @@ public class FragmentoInicio extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), PublicacionActivity.class);
-                i.putExtra("indice",false);
+                i.putExtra("nombre", nombreGrupo);
                 startActivity(i);
             }
         });
@@ -72,7 +81,11 @@ public class FragmentoInicio extends Fragment {
         helper = new ParseServerHelper(activity, this);
 
         adaptadorNoticia = new AdaptadorNoticia(new ArrayList<ParseObject>(), ParseServerHelper.getCurrentUser().getUsername());
-        helper.getPublicaciones(adaptadorNoticia,"publica");
+        if (nombreGrupo == null) {
+            helper.getPublicaciones(adaptadorNoticia, "publica");
+        } else {
+            helper.getPublicacionesGrupo(adaptadorNoticia, "publica", nombreGrupo);
+        }
         recycler.setAdapter(adaptadorNoticia);
 
         return v;

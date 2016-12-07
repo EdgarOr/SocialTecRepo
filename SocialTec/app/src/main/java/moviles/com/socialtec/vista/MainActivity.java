@@ -72,14 +72,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-/*
-//  Esto es para un menú sobre el ActionBar, mismo que es desplegado en el DrawerLayout
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_drawer, menu);
-        return true;
-    }
-*/
+    /*
+    //  Esto es para un menú sobre el ActionBar, mismo que es desplegado en el DrawerLayout
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.menu_drawer, menu);
+            return true;
+        }
+    */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-
     }
 
     private void seleccionarItem(MenuItem itemDrawer) {
@@ -117,15 +116,10 @@ public class MainActivity extends AppCompatActivity {
                 fragmentoGenerico = a;
                 break;
             case R.id.nav_grupos:
-                FragmentoGrupo grupo = new FragmentoGrupo();
-                grupo.setActivity(this);
-                fragmentoGenerico = grupo;
+                fragmentoGenerico = new FragmentoGrupo();
                 break;
             case R.id.nav_ajustes:
-                FragmentoPerfil perfil = new FragmentoPerfil();
-                perfil.setActivity(this);
-                fragmentoGenerico = perfil;
-                break;
+                fragmentoGenerico = new FragmentoPerfil();
             case R.id.nav_cerrar_sesion:
                 new Thread(new Runnable() {
                     @Override

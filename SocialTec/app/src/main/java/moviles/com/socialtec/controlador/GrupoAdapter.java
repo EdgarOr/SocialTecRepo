@@ -1,6 +1,7 @@
 package moviles.com.socialtec.controlador;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import moviles.com.socialtec.NoticiasGruposActivity;
 import moviles.com.socialtec.R;
 import moviles.com.socialtec.modelo.Grupo;
 
@@ -32,13 +34,21 @@ public class GrupoAdapter extends ArrayAdapter {
         LayoutInflater inflater = LayoutInflater.from(contexto);
         View item = inflater.inflate(R.layout.item_grupo, null);
 
-        Grupo grupo = (Grupo) grupos.get(position);
+        final Grupo grupo = (Grupo) grupos.get(position);
 
         TextView textView = (TextView) item.findViewById(R.id.textViewItemGrupo);
         String texto = grupo.getNombre().toString();
 
         textView.setText(texto);
         textView.setEnabled(false);
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(contexto, NoticiasGruposActivity.class);
+                i.putExtra("nombre", grupo.getNombre());
+                contexto.startActivity(i);
+            }
+        });
         notifyDataSetChanged();
         return item;
     }

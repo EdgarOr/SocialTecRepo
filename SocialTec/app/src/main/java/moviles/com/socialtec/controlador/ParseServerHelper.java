@@ -205,6 +205,35 @@ public class ParseServerHelper {
         }).start();
     }
 
+    public void registrarPublicacionGrupo (final String contenido, final ParseUser usuario, final String tipo,
+                                           final Date fecha, final String nombreGrupo) {
+        lanzarProgressDialog("Publicando...");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ParseObject publicacion = new ParseObject("PublicacionGrupo");
+                publicacion.put("contenido", contenido);
+                publicacion.put("usuario", usuario);
+                publicacion.put("tipoPublicacion", tipo);
+                publicacion.put("nombreGrupo", nombreGrupo);
+                publicacion.put("createdAt", fecha);
+
+                publicacion.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            progressDialog.dismiss();
+                            activity.finish();
+                        } else {
+                            progressDialog.dismiss();
+                            lanzarAlert("ERROR PUBLICACION", e.getMessage());
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
+
 
     public void editarPublicacion(final String idPublicacion, final String contenido) {
 
@@ -260,6 +289,30 @@ public class ParseServerHelper {
 
     }
 
+    public void getPublicacionesGrupo(final AdaptadorNoticia adaptadorNoticia, final String tipoPublicacion, final String nombreGrupo) {
+        lanzarProgressDialog("Cargando publicaciones...");
+        final ArrayList<ParseObject> lista = new ArrayList<>();
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("PublicacionGrupo");
+        query.whereEqualTo("tipoPublicacion",tipoPublicacion);
+        query.whereEqualTo("nombreGrupo", nombreGrupo);
+        query.orderByDescending("createdAt");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                if (e == null ) {
+                    lista.addAll(objects);
+                    adaptadorNoticia.setPublicaciones(lista);
+                    adaptadorNoticia.notifyDataSetChanged();
+                    progressDialog.dismiss();
+
+                } else {
+                    String listaVacia = objects.isEmpty()? "Lista vacía. " : "";
+                    lanzarAlert("Error load posts", listaVacia + "Error quiensabe");
+                }
+            }
+        });
+    }
 
     public void crearGrupo (final String nombreGrupo, final Date date) {
         lanzarProgressDialog("Creando grupo...");
